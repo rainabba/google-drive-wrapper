@@ -1,0 +1,10 @@
+*.log
+.workspace
+*.sublime-workspace
+*.sublime-project
+/node_modules/
+/bower_components
+/private/
+/.env
+/.docker-sync/
+/logs/
