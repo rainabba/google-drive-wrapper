@@ -11,16 +11,9 @@
     "url": "git+https://github.com/mhdawson/google-drive-wrapper.git"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "google-auth-library": "^0.9.7",
-    "google-auth-wrapper": "^0.5.0",
-    "googleapis": "^29.0.0",
-    "mime-types": "^2.1.10"
-=======
     "googleapis": "^29.0.0",
     "mime-types": "^2.1.10",
     "oauth-token-generator-google": "git+https://github.com/rainabba/oauth-token-generator-google.git"
->>>>>>> master
   },
   "keywords": [
     "google",
@@ -39,11 +32,6 @@
   "devDependencies": {
     "code": "^5.2.0",
     "lab": "^15.4.4",
-<<<<<<< HEAD
-    "moment": "^2.22.1",
-    "oauth-token-generator-google": "git+https://github.com/rainabba/oauth-token-generator-google.git"
-=======
     "moment": "^2.22.1"
->>>>>>> master
   }
 }
