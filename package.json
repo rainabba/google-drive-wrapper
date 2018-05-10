@@ -1,10 +1,10 @@
 {
   "name": "google-drive-wrapper",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Wrapper to simplify interaction with google drive apis",
   "main": "lib/gdriveWrapper.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lab -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async"
   },
   "repository": {
     "type": "git",
@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "google-auth-library": "^0.9.7",
-    "googleapis": "^5.0.0",
-    "mime-types": "^2.1.10",
-    "google-auth-wrapper": "^0.5.0"
+    "google-auth-wrapper": "^0.5.0",
+    "googleapis": "^29.0.0",
+    "mime-types": "^2.1.10"
   },
   "keywords": [
     "google",
@@ -29,5 +29,11 @@
   "bugs": {
     "url": "https://github.com/mhdawson/google-drive-wrapper/issues"
   },
-  "homepage": "https://github.com/mhdawson/google-drive-wrapper#readme"
+  "homepage": "https://github.com/mhdawson/google-drive-wrapper#readme",
+  "devDependencies": {
+    "code": "^5.2.0",
+    "lab": "^15.4.4",
+    "moment": "^2.22.1",
+    "oauth-token-generator-google": "git+https://github.com/rainabba/oauth-token-generator-google.git"
+  }
 }
