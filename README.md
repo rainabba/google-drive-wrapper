@@ -3,6 +3,8 @@
 Wrapper to simplify transferring files to/from google
 drive.
 
+This project is in rapid flux so use with caution.
+
 The npm google-auth-wrapper
 ([npm](https://www.npmjs.com/package/google-auth-wrapper)/
 [github](https://github.com/mhdawson/google-auth-wrapper))
@@ -39,68 +41,12 @@ not the ones shown!).  See the info for
 for how to create the required 'client_secret.json' and 
 'client_secret.token' files:
 
-This example downloads all files in the google drive file 'backups' into the local
-directory 'download':
-<PRE>
-var googleAuth = require('google-auth-wrapper');
-var gdriveWrapper = require('google-drive-wrapper');
-
-googleAuth.execute('./', 'client_secret', function(auth, google) {
-  var wrapper = new gdriveWrapper(auth, google, 'goodpassword');
-  wrapper.downloadNewFiles('backups', './download', function(err) {
-    if(err) {
-      console.log(err);
-    }
-  });
-});
-</PRE>
-
-This example uploads all files from the local directory 'upload' to the google
-drive directory 'backups'.  Once transferred files are moved from
-the 'upload' directory to the 'upload-done' directory.
-<PRE>
-var googleAuth = require('google-auth-wrapper');
-var gdriveWrapper = require('google-drive-wrapper');
-
-googleAuth.execute('./', 'client_secret', function(auth, google) {
-  var wrapper = new gdriveWrapper(auth, google, 'goodpassword');
-  wrapper.uploadNewFiles('backups', 'upload', 'upload-done', function(err) {
-    if(err) {
-      console.log(err);
-    }
-  });
-});
-</PRE>
-
 This example uploads a text file and specifies that it should be converted
 into a google doc document that can be edited online like any other google
 doc:
 
-<PRE>
-var googleAuth = require('google-auth-wrapper');
-var gdriveWrapper = require('google-drive-wrapper');
-
-
-googleAuth.execute('./', 'client_secret', function(auth, google) {
-  var wrapper = new gdriveWrapper(auth, google, 'goodpassword');
-
-  wrapper.getMetaForFilename('/backups/docker-images', function(err, parentMeta) {
-    if (err !== null) {
-      console.log('Invalid directory path');
-    }
-    wrapper.uploadFile('testdoc', 'testdoc.txt',
-                       {parent: parentMeta.id, compress: false, encrypt: false,
-                        convert: true, mimeType: 'application/vnd.google-apps.document'},
-                       function(err, meta) {
-      if (err !== null) {
-        console.log('Failed to upload file');
-      } else {
-        console.log('Sharable link: https://drive.google.com/open?id=' + meta.id);
-      }
-    });
-  });
-});
-</PRE>
+### Samples
+See test/index.js for working examples
 
 We need to disable both compression and encryption as we want the file to be
 plaintext so it can be converted.  We then need to specify 'convert: true' so 
