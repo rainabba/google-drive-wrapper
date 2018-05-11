@@ -5,7 +5,7 @@ Features
 	- Update googleapis to v29.0.0
 	- Added tests to confirm some of the functionality - Lots more tests needed
 
-### 0.8.0 ( )
+### 0.8.0 ( 2018-05-11 )
 
 Note:
 	BREAKING CHANGES - this would be a major version increment IF it was
