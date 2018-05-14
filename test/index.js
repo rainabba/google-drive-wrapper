@@ -32,7 +32,7 @@ lab.experiment("Google API ", {}, () => {
         })
     });
 
-    lab.test("confirm credentials using Drive filelist", { timeout: 5000 }, () => {
+    lab.test("Confirm oauth token using Drive filelist", { timeout: 5000 }, () => {
 
         return new Promise((resolve, reject) => {
             const service = google.drive('v3');
@@ -56,7 +56,7 @@ lab.experiment("Google API ", {}, () => {
 
     }); // End Test
 
-    lab.test(" uploading /uploadTest.txt", { timeout: 10000 }, () => {
+    lab.test("Upload uploadTest.txt to Drive root(/)", { timeout: 10000 }, () => {
 
         return new Promise((resolve, reject) => {
             let uploadFile = path.normalize(path.join(__dirname, 'uploadTest.txt'));
@@ -74,7 +74,7 @@ lab.experiment("Google API ", {}, () => {
 
     }); // End Test
 
-    lab.test("confirm uploadTest.txt", { timeout: 10000 }, () => {
+    lab.test("Confirm upload of uploadTest.txt", { timeout: 10000 }, () => {
 
         return new Promise((resolve, reject) => {
             expect( driveWrapper ).to.be.an.object();
