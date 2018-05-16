@@ -1,3 +1,8 @@
+### 0.9.1 ( 2018-05-16 )
+
+Fix
+	- Update main in package.json to reflect new lib/index.js filename
+
 ### 0.9.0 ( 2018-05-16 )
 
 Features
