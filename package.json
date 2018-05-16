@@ -1,8 +1,8 @@
 {
   "name": "google-drive-wrapper",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Wrapper to simplify interaction with google drive apis",
-  "main": "lib/gdriveWrapper.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "lab -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async",
     "test:dev": "lab --inspect-brk -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async",
