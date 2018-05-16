@@ -1,4 +1,4 @@
-### 0.8.1 (  )
+### 0.9.0 ( 2018-05-16 )
 
 Features
 	- Substantial refactoring to further improve error catching and reprting as well as further promisify code, including calls to Google API methods
@@ -7,6 +7,9 @@ Features
 	- More refactoring, standardizing use of "semantic this" and more promisifying calls
 	- More tests for new methods
 	- Enhanced uploadFile so that a full path can be provided and mkdirp will ensure the path exists before upload
+
+Note
+	MORE BREAKING CHANGES - this would be a major version increment IF .... I think I'll release 1.0.0 soon or on the next update, which ever is first.
 
 ### 0.8.0 ( 2018-05-11 )
 
