@@ -2,6 +2,7 @@
 
 Features
 	- Substantial refactoring to further improve error catching and reprting as well as further promisify code, including calls to Google API methods
+	- Added mkdir() method which takes a foldername and optionally a parentid then returns the Drive folder object
 
 
 ### 0.8.0 ( 2018-05-11 )
