@@ -3,7 +3,10 @@
 Features
 	- Substantial refactoring to further improve error catching and reprting as well as further promisify code, including calls to Google API methods
 	- Added mkdir() method which takes a foldername and optionally a parentid then returns the Drive folder object
-
+	- Added mkdirp() method which will create missing folders starting from root
+	- More refactoring, standardizing use of "semantic this" and more promisifying calls
+	- More tests for new methods
+	- Enhanced uploadFile so that a full path can be provided and mkdirp will ensure the path exists before upload
 
 ### 0.8.0 ( 2018-05-11 )
 
@@ -20,7 +23,6 @@ Fix
 Features
 	- Fully reworked tests
 
-s
 ### 0.7.0 ( 2018-05-10 )
 
 Features

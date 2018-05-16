@@ -5,7 +5,8 @@
   "main": "lib/gdriveWrapper.js",
   "scripts": {
     "test": "lab -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async",
-    "test:dev": "lab --inspect-brk -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async"
+    "test:dev": "lab --inspect-brk -t 50 -c -M 20000 -r console -o stdout -r html --verbose -o test/CODE_COVERAGE.html -l -I testAccount,Config,lab,Lab,vtv,Hoek,user,auth,async",
+    "dev": "node --inspect-brk test/"
   },
   "repository": {
     "type": "git",
