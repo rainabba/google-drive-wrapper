@@ -32,7 +32,11 @@ lab.experiment("Google API ", {}, () => {
                 driveWrapper = new wrapper( _auth, google);
                 auth = _auth;
                 resolve();
-            }).catch(err => { console.dir(err) });
+            }).catch(err => { 
+                console.error(err);
+                debugger;
+                reject( err );
+            });
         })
     });
 
@@ -48,6 +52,7 @@ lab.experiment("Google API ", {}, () => {
                 if (err) {
                     console.error('The API returned an error.');
                     console.dir(err);
+                    debugger;
                     reject(err);
                 }
                 expect(res).to.be.an.object();
@@ -70,6 +75,8 @@ lab.experiment("Google API ", {}, () => {
                     expect( folder.name.toLowerCase() ).to.equal( folderParts[ folderParts.length -1 ].toLowerCase().replace(/^\//g,'') );
                     resolve();
                 }).catch(err => {
+                    console.error(err);
+                    debugger;
                     expect(err).to.be.null();
                 });
         });
@@ -85,6 +92,8 @@ lab.experiment("Google API ", {}, () => {
                     expect( folder.name.toLowerCase() ).to.equal( testFolderB.toLowerCase().replace(/^\//g,'') );
                     resolve();
                 }).catch(err => {
+                    console.error(err);
+                    debugger;
                     expect(err).to.be.null();
                 });
         });
@@ -106,9 +115,12 @@ lab.experiment("Google API ", {}, () => {
                             expect(file.name).to.equal('uploadTest.txt');
                             resolve();
                         }).catch(err => {
+                            console.error(err);
+                            debugger;
                             expect(err).to.be.null();
                         });
                 }).catch( err => {
+                    console.error(err);
                     debugger;
                     reject( err );
                 });
@@ -142,11 +154,11 @@ lab.experiment("Google API ", {}, () => {
                 uploadFile,
                 { keepFileAfterUpload: true, resource: { description: 'Google API uploadTest.txt test' }, properties: { testProp: "testValue" } })
                 .then(file => {
-                    debugger;
                     expect(file.id).to.exist();
                     expect(file.name).to.equal('uploadTest.txt');
                     resolve();
                 }).catch(err => {
+                    console.error(err);
                     debugger;
                     expect(err).to.be.null();
                 });
@@ -166,7 +178,8 @@ lab.experiment.skip("DEVELOPMENT: ", {}, () => {
                 driveWrapper = new wrapper( _auth, google);
                 auth = _auth;
                 resolve();
-            }).catch(err => { console.dir(err) });
+            })
+            .catch(err => { console.error(err); debugger; });
         })
     });
 
