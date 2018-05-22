@@ -28,8 +28,10 @@ lab.experiment("Google API ", {}, () => {
     lab.before( () => {
         return new Promise( (resolve,reject) => {
             require('oauth-token-generator-google')(googleAuthCredentials).then( _auth => {
+                expect( _auth ).to.be.an.object();
                 let wrapper = require('../lib/');
                 driveWrapper = new wrapper( _auth, google);
+                expect( driveWrapper ).to.be.an.object();
                 auth = _auth;
                 resolve();
             }).catch(err => { 
@@ -128,6 +130,34 @@ lab.experiment("Google API ", {}, () => {
         });
     }); // End Test
 
+    lab.test("Update uploadTest.txt to Drive " + testFolderA + testFolderB, { timeout: 10000 }, () => {
+
+        return new Promise((resolve, reject) => {
+            let uploadFile = path.normalize(path.join(__dirname, 'uploadTest.txt'));
+            expect(fs.existsSync(uploadFile)).to.be.true();
+            expect( driveWrapper ).to.be.an.object();
+
+            driveWrapper.getMetaForFilename( testFolderA + testFolderB )
+                .then( folder => {
+                    driveWrapper.uploadFile('uploadTest.txt', uploadFile, { keepFileAfterUpload: true, resource: { parents: [ folder.id ], description: 'Google API uploadTest.txt test' }, properties: { testProp: "testValue" } })
+                        .then(file => {
+                            expect(file.id).to.exist();
+                            expect(file.name).to.equal('uploadTest.txt');
+                            resolve();
+                        }).catch(err => {
+                            console.error(err);
+                            debugger;
+                            expect(err).to.be.null();
+                        });
+                }).catch( err => {
+                    console.error(err);
+                    debugger;
+                    reject( err );
+                });
+
+        });
+    }); // End Test
+
     lab.test("Confirm upload of " + testFolderA + testFolderB + "/uploadTest.txt", { timeout: 10000 }, () => {
         return new Promise((resolve, reject) => {
             expect( driveWrapper ).to.be.an.object();
@@ -161,6 +191,34 @@ lab.experiment("Google API ", {}, () => {
                     console.error(err);
                     debugger;
                     expect(err).to.be.null();
+                });
+
+        });
+    }); // End Test
+
+    lab.test("Update uploadTest.txt to Drive " + testFolderA + testFolderB, { timeout: 10000 }, () => {
+
+        return new Promise((resolve, reject) => {
+            let uploadFile = path.normalize(path.join(__dirname, 'uploadTest.txt'));
+            expect(fs.existsSync(uploadFile)).to.be.true();
+            expect( driveWrapper ).to.be.an.object();
+
+            driveWrapper.getMetaForFilename( testFolderA + testFolderB )
+                .then( folder => {
+                    driveWrapper.uploadFile('uploadTest.txt', uploadFile, { keepFileAfterUpload: true, resource: { parents: [ folder.id ], description: 'Google API uploadTest.txt test' }, properties: { testProp: "testValue" } })
+                        .then(file => {
+                            expect(file.id).to.exist();
+                            expect(file.name).to.equal('uploadTest.txt');
+                            resolve();
+                        }).catch(err => {
+                            console.error(err);
+                            debugger;
+                            expect(err).to.be.null();
+                        });
+                }).catch( err => {
+                    console.error(err);
+                    debugger;
+                    reject( err );
                 });
 
         });
