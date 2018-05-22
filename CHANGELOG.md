@@ -1,4 +1,4 @@
-### 0.9.2 (  )
+### 0.9.2 ( 2018-05-22 )
 
 Feature
 	- uploadFile has been enhanced to support Drive versioning by calling update() instead of uploading a 2nd file with the same name when an existing file is detected.
