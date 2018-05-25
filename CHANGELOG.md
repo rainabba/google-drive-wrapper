@@ -1,4 +1,4 @@
-### 0.9.3 (  )
+### 0.9.3 ( 2018-05-25 )
 
 Feature
 	- Added mv() functionality that is somewhat primitive, but takes a sourcePath and destinationPath which both must be full paths (including filename)
