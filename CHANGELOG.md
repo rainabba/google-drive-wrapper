@@ -1,3 +1,15 @@
+### 0.9.3 (  )
+
+Feature
+	- Added mv() functionality that is somewhat primitive, but takes a sourcePath and destinationPath which both must be full paths (including filename)
+
+Fix
+	- Minor bug fixes and hardening
+
+Change
+	- Name change to reflect intent to expand library to other major cloud services
+	- MAJOR change is object structure for constuctor to allow for other cloud services
+
 ### 0.9.2 ( 2018-05-22 )
 
 Feature

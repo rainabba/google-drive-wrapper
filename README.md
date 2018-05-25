@@ -1,33 +1,27 @@
-# google-drive-wrapper
+# node-cloudfs-drive
 
-Wrapper to simplify transferring files to/from google
-drive.
+Library to make working with Google drive more like working with a local fs. Other cloud services to come as I have time or others contribute.
 
-This project is in rapid flux so use with caution.
+This module provides these methods for Google Drive:
 
-This modules provides these methods: 
-
-* gdriveWrapper ( contructor )
-* uploadFile
-* downloadFile
-* getMetaForFilename
-* getFileMetaData 
-* listFiles
-* mkdir
-* mkdirp
-* pathSplit
+* ncfs.Drive ( contructor )
+* ncfs.Drive.uploadFile
+* ncfs.Drive.downloadFile
+* ncfs.Drive.getMetaForFilename
+* ncfs.Drive.getFileMetaData 
+* ncfs.Drive.listFiles
+* ncfs.Drive.mkdir
+* ncfs.Drive.mkdirp
+* ncfs.Drive.pathSplit
 
 
 They allow individual files to be uploaded/downloaded. On upload they allow
 a file to be converted into a google doc format for sharing/editing
 in the same manner as any other googlo doc.
 
-## gdriveWrapper
+## Drive
 
-gdriveWrapper is used to create a new wrapper instance that
-can be used to invoke the other methods.  It takes the following
-parameters:
-
+The Google Drive constructor requires:
 * auth - googleAuth.OAuth2 object to be used to access the google services (see not below)
 * google - instance of googleapis to be used to access the google services
 
