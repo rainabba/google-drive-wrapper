@@ -1,6 +1,6 @@
 {
   "name": "google-drive-wrapper",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Wrapper to simplify interaction with google drive apis",
   "main": "lib/index.js",
   "scripts": {
