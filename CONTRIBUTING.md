@@ -6,3 +6,8 @@ Personally, I contribute on GitHub regularly without ever leaving the browser wh
 
 ##TESTS
 Run `npm test` or `npm run test:dev` if you need debugging, and make sure ALL tests pass before you submit a PR. I should see test/CODE_COVERAGE.html as part of your PR as a result and that will let me also see the test results before deciding to take a PR.
+
+## TODO
+..* More tests to confirm exceptions as well as functionality
+..* permissions.remove
+..* More providers

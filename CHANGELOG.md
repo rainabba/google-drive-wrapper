@@ -1,7 +1,12 @@
-### 0.9.4 (  )
+### 1.0.0 ( 2018-06-14  )
 
 Feature
 	- Added the ability to create permissions ( an array of individual permission sets ) by FileId
+
+Change
+	- Refactored and updated references/repos to release as node-cloudfs-drive with future thoughts on node-cloudfs-s3 and such
+	- Fully updated, tested and shrinkwrapped
+	- Will register with NPM after push
 
 ### 0.9.3 ( 2018-05-25 )
 
