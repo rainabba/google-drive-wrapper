@@ -1,11 +1,11 @@
-#history
-This project wouldn't exist if not for https://github.com/mhdawson/google-drive-wrapper. I did fork initially, but so much changed so quickly that I decided a PR made no sense and this was to live on as its own project. Thanks to Michael Dawson for giving me a kick-off point with this.
-
-# node-cloudfs-drive
+## node-cloudfs-drive
 
 Library implementing Promises to make working with Google drive more like working with a local fs (paths, folders, files, and standard operations.) Other cloud services to come as I have time or others contribute. Please see the CONTRIBUTE.md file.
 
-# issues and support
+# history
+This project wouldn't exist if not for https://github.com/mhdawson/google-drive-wrapper. I did fork initially, but so much changed so quickly that I decided a PR made no sense and this was to live on as its own project. Thanks to Michael Dawson for giving me a kick-off point with this.
+
+## issues and support
 Please see CONTRIBUTING.md
 
 The Google Drive constructor requires:

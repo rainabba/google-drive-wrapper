@@ -1,5 +1,5 @@
 {
-  "name": "google-drive-wrapper",
+  "name": "node-cloudfs-drive",
   "version": "0.9.3",
   "description": "Wrapper to simplify interaction with google drive apis",
   "main": "lib/index.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rainabba/google-drive-wrapper.git"
+    "url": "git+https://github.com/rainabba/node-cloudfs-drive.git"
   },
   "dependencies": {
-    "googleapis": "^29.0.0",
+    "googleapis": "^32.0.0",
     "mime-types": "^2.1.18",
-    "oauth-token-generator-google": "git+https://github.com/rainabba/oauth-token-generator-google.git"
+    "moment": "^2.22.2"
   },
   "keywords": [
     "google",
@@ -28,13 +28,13 @@
   "author": "Michael Dawson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rainabba/google-drive-wrapper/issues"
+    "url": "https://github.com/rainabba/node-cloudfs-drive/issues"
   },
-  "homepage": "https://github.com/rainabba/google-drive-wrapper#readme",
+  "homepage": "https://github.com/rainabba/node-cloudfs-drive#readme",
   "devDependencies": {
+    "oauth-token-generator-google": "git+https://github.com/rainabba/oauth-token-generator-google.git",
     "code": "^5.2.0",
     "lab": "^15.4.4",
-    "moment": "^2.22.1",
     "uuid": "^3.2.1"
   }
 }
