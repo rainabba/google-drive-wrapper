@@ -1,8 +1,5 @@
-
- [![GitHub issues](https://img.shields.io/github/issues/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/issues) [![GitHub stars](https://img.shields.io/github/stars/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/stargazers) [![GitHub license](https://img.shields.io/github/license/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/blob/master/LICENSE.txt) [![Twitter](https://img.shields.io/twitter/url/https/github.com/rainabba/node-cloudfs-drive.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Frainabba%2Fnode-cloudfs-drive)
-
 # node-cloudfs-drive
-
+[![GitHub issues](https://img.shields.io/github/issues/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/issues) [![GitHub stars](https://img.shields.io/github/stars/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/stargazers) [![GitHub license](https://img.shields.io/github/license/rainabba/node-cloudfs-drive.svg)](https://github.com/rainabba/node-cloudfs-drive/blob/master/LICENSE.txt) [![Twitter](https://img.shields.io/twitter/url/https/github.com/rainabba/node-cloudfs-drive.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Frainabba%2Fnode-cloudfs-drive)
 
 Library implementing Promises to make working with Google drive more like working with a local fs (paths, folders, files, and standard operations.) Other cloud services to come as I have time or others contribute. Please see the CONTRIBUTE.md file.
 
@@ -17,19 +14,32 @@ The Google Drive constructor requires:
 * google - instance of googleapis to be used to access the google services
 
 ## USE
-`npm install node-cloudfs-drive --save`
 
-```node.js
-	let { google } = require('googleapis');
-
-    require('oauth-token-generator-google')(googleAuthCredentials).then( _auth => { //I suggest using someone elses's token generator until mine is at least 1.0.0, but it does work for testing
-        let drive = require('node-cloudfs-drive').Drive( _auth, google);
-        // drive will expose this projects helper methods as well as the actual drive object (so drive.drive in this case)
-    }).catch(err => { 
-        console.error(err);
-        reject( err );
-    });
+```bash
+npm install node-cloudfs-drive --save
 ```
+
+```javascript
+let { google } = require('googleapis');
+
+//I suggest using someone elses's token generator until mine is at least 1.0.0, but it does work for testing
+require('oauth-token-generator-google')( googleAuthCredentialsPath ).then( auth => { 
+	let drive = require('node-cloudfs-drive').Drive( auth, google );
+	// drive will expose this projects helper methods as well as the actual the googleapis drive object
+    
+    drive.mkdir( testFolderA )
+    .then( folder => {
+		// Your Google Drive folder object
+    })
+    .catch(err => {
+    	console.error(err);
+    });
+})
+.catch(err => { 
+	console.error(err);
+});
+```
+
 
 ## GOOGLE AUTH TOKEN
 Overview: [https://developers.google.com/identity/protocols/OAuth2](https://developers.google.com/identity/protocols/OAuth2)
