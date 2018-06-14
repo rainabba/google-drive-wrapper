@@ -1,5 +1,4 @@
 const path = require('path'),
-    Moment = require('moment'),
     fs = require('fs'),
     { google } = require('googleapis'),
     uuidv4 = require('uuid/v4');
@@ -20,7 +19,8 @@ let Code = require('code'),
     drive = null,
     testFolderA = '/test-' + uuidv4(),
     testFolderB = '/test-' + uuidv4(),
-    testFolderC = '/test-' + uuidv4();
+    testFolderC = '/test-' + uuidv4(),
+    moment = require('moment');
 
 
 lab.experiment("Google API ", {}, () => {
@@ -29,8 +29,7 @@ lab.experiment("Google API ", {}, () => {
         return new Promise( (resolve,reject) => {
             require('oauth-token-generator-google')(googleAuthCredentials).then( _auth => {
                 expect( _auth ).to.be.an.object();
-                let ncfsDrive = require('../lib/').Drive;
-                drive = new ncfsDrive( _auth, google);
+                drive = require('../lib/').Drive( _auth, google);
                 expect( drive ).to.be.an.object();
                 auth = _auth;
                 resolve();
@@ -253,16 +252,49 @@ lab.experiment("Google API ", {}, () => {
         });
     }); // End Test
 
+    lab.test("Make file publicly sharable for 48 hours " + testFolderA + '/uploadTestMoved.txt' , { timeout: 12000 }, () => {
+        return new Promise((resolve, reject) => {
+            let srcFilePath = path.join(testFolderA, '/uploadTestMoved.txt');
+            drive.getMetaForFilename(srcFilePath)
+                .then( file => {
+                    if ( !file || !file.id ) { reject( {} ) }
+                    expect( file.id.length > 32 ).to.be.a.true();
+                    drive.permissions.create(
+                        file.id, [{
+                            'type': 'anyone',
+                            'role': 'reader',
+                            'allowFileDiscovery': false,
+                            'expirationTime': moment().add({ hours: 48 })._d
+                        }])
+                        .then( res => {
+                            expect( res.permissions.length == 1 ).to.be.true();
+                            expect( res.Id == file.id ).to.be.true();
+                            resolve();
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            debugger;
+                            expect(err).to.be.null();
+                        });
+                })
+                .catch(err => {
+                    console.error(err)
+                    debugger;
+                    expect(err).to.be.null();
+                });
+        });
+    }); // End Test
+
 }); // End Experiment "Google API "
 
+    testFolderA = '/test-701afbd5-a750-46d3-987d-a12b65f7db29'
 
 lab.experiment.skip("DEVELOPMENT: ", { timeout: 500000 }, () => {
 
     lab.before( () => {
         return new Promise( (resolve,reject) => {
             require('oauth-token-generator-google')(googleAuthCredentials).then( _auth => {
-                let ncfsDrive = require('../lib/').Drive;
-                drive = new ncfsDrive( _auth, google);
+                drive = require('../lib/').Drive( _auth, google);
                 auth = _auth;
                 resolve();
             })
