@@ -1,25 +1,12 @@
+#history
+This project wouldn't exist if not for https://github.com/mhdawson/google-drive-wrapper. I did fork initially, but so much changed so quickly that I decided a PR made no sense and this was to live on as its own project. Thanks to Michael Dawson for giving me a kick-off point with this.
+
 # node-cloudfs-drive
 
-Library to make working with Google drive more like working with a local fs. Other cloud services to come as I have time or others contribute.
+Library implementing Promises to make working with Google drive more like working with a local fs (paths, folders, files, and standard operations.) Other cloud services to come as I have time or others contribute. Please see the CONTRIBUTE.md file.
 
-This module provides these methods for Google Drive:
-
-* ncfs.Drive ( contructor )
-* ncfs.Drive.uploadFile
-* ncfs.Drive.downloadFile
-* ncfs.Drive.getMetaForFilename
-* ncfs.Drive.getFileMetaData 
-* ncfs.Drive.listFiles
-* ncfs.Drive.mkdir
-* ncfs.Drive.mkdirp
-* ncfs.Drive.pathSplit
-
-
-They allow individual files to be uploaded/downloaded. On upload they allow
-a file to be converted into a google doc format for sharing/editing
-in the same manner as any other googlo doc.
-
-## Drive
+# issues and support
+Please see CONTRIBUTING.md
 
 The Google Drive constructor requires:
 * auth - googleAuth.OAuth2 object to be used to access the google services (see not below)

@@ -1,3 +1,8 @@
+### 0.9.4 (  )
+
+Feature
+	- Added the ability to create permissions ( an array of individual permission sets ) by FileId
+
 ### 0.9.3 ( 2018-05-25 )
 
 Feature
