@@ -1,6 +1,6 @@
 {
   "name": "node-cloudfs-drive",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "description": "Wrapper to simplify interaction with google drive apis",
   "main": "lib/index.js",
   "scripts": {
@@ -13,9 +13,9 @@
     "url": "git+https://github.com/rainabba/node-cloudfs-drive.git"
   },
   "dependencies": {
-    "googleapis": "^32.0.0",
-    "mime-types": "^2.1.18",
-    "moment": "^2.22.2"
+    "googleapis": ">=29.0.0 <33.0.0",
+    "mime-types": ">=2.x.x < 3.0.0",
+    "moment": ">=2.0.0 < 3.0.0"
   },
   "keywords": [
     "google",
