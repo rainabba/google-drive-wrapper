@@ -1,3 +1,8 @@
+### 1.0.2 ( 2018-06-14  )
+
+Change
+	- More README.md cleanup and testing update/npm for future clarify
+
 ### 1.0.1 ( 2018-06-14  )
 
 Change
