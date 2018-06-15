@@ -1,6 +1,6 @@
 {
   "name": "node-cloudfs-drive",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Wrapper to simplify interaction with google drive apis",
   "main": "lib/index.js",
   "scripts": {
