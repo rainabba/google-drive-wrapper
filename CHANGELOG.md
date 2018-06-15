@@ -1,3 +1,13 @@
+### 1.0.4 ( 2018-06-14  )
+
+Fix
+	- Results from permissions.create() included "Id" instead of "id". Fixed and test updated (test was flawed also).
+
+### 1.0.3 ( 2018-06-14  )
+
+Change
+	- More README.md tweaks
+
 ### 1.0.2 ( 2018-06-14  )
 
 Change
