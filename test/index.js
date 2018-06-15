@@ -268,7 +268,7 @@ lab.experiment("Google API ", {}, () => {
                         }])
                         .then( res => {
                             expect( res.permissions.length == 1 ).to.be.true();
-                            expect( res.Id == file.id ).to.be.true();
+                            expect( res.id == file.id ).to.be.true();
                             resolve();
                         })
                         .catch(err => {
