@@ -13,6 +13,8 @@ The Google Drive constructor requires:
 * auth - googleAuth.OAuth2 object to be used to access the google services (see not below)
 * google - instance of googleapis to be used to access the google services
 
+Caching is provided by [node-cache](https://github.com/mpneuried/nodecache) and reduces API calls substancially for getMetaForFilename as well as making things almost instant compared to external API calls, much as a reverse proxy between this and the API would.
+
 ## USE
 
 ```bash
