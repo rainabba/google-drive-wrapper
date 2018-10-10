@@ -1,3 +1,11 @@
+### 1.0.5 ( 2018-10-10 )
+
+Feature
+	- Added caching using node-cache to speed things up and reduce API calls out. Caching is based on the calculated query so should be deterministic for a given path/filename.ext
+
+Change
+	- Updated dependencies to: googleapis@34.0.0 and lab@16.1.0 dependencies
+
 ### 1.0.4 ( 2018-06-14  )
 
 Fix

@@ -159,7 +159,7 @@ lab.experiment("Google API ", {}, () => {
     lab.test("Confirm upload of " + testFolderA + testFolderB + "/uploadTest.txt", { timeout: 10000 }, () => {
         return new Promise((resolve, reject) => {
             expect( drive ).to.be.an.object();
-            drive.getMetaForFilename('/uploadTest.txt')
+            drive.getMetaForFilename( '/uploadTest.txt' ) // This should cause caching which will be checked in the next test
                 .then(file => {
                     expect(file).to.be.an.object();
                     expect(file.id).to.exist();
@@ -170,6 +170,27 @@ lab.experiment("Google API ", {}, () => {
                 });
         });
     }); // End Test
+
+    lab.test("Confirm cache speed and functionality", { timeout: 2000 }, () => {
+        return new Promise((resolve, reject) => {
+            let startTime = (new Date()).getTime();
+            expect( drive ).to.be.an.object();
+            drive.getMetaForFilename( '/uploadTest.txt' )
+                .then(file => {
+                    let duration = (new Date()).getTime() - startTime;
+                    expect( file ).to.be.an.object();
+                    expect( file.id ).to.exist();
+                    expect( file.name ).to.equal( 'uploadTest.txt' );
+                    expect( file.fromCache ).to.be.a.boolean().and.to.equal(true);
+                    expect( duration < 150 ).to.equal(true);
+                    resolve();
+                })
+                .catch(err => {
+                    console.error( err );
+                    expect( err ).to.be.null();
+                });
+        });
+    }); // End Test 
 
     lab.test("Test auto mkdirp in upload uploadText.txt to Drive " + testFolderA + testFolderB + testFolderC, { timeout: 100000 }, () => {
 
