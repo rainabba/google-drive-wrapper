@@ -1,3 +1,8 @@
+### 1.0.6 (  )
+
+Feature
+	- Added more caching to further reduce API calls
+
 ### 1.0.5 ( 2018-10-10 )
 
 Feature
