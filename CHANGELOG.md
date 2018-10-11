@@ -1,4 +1,4 @@
-### 1.0.8 ( )
+### 1.0.8 ( 2018-10-11 )
 
 Change
 	- Wrapped the rest of the API calls in throttle
