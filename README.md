@@ -13,7 +13,9 @@ The Google Drive constructor requires:
 * auth - googleAuth.OAuth2 object to be used to access the google services (see not below)
 * google - instance of googleapis to be used to access the google services
 
-Caching is provided by [node-cache](https://github.com/mpneuried/nodecache) and reduces API calls substancially for getMetaForFilename as well as making things almost instant compared to external API calls, much as a reverse proxy between this and the API would.
+Caching is provided by [node-cache](https://github.com/mpneuried/nodecache) and reduces API calls substancially for getMetaForFilename as well as making things almost instant compared to external API calls, much as a reverse proxy between this and the API would. See options in code below if you'd like to tweak the cache timeout values.
+
+Throttling is provided by [promise-ratelimit](https://www.npmjs.com/package/promise-ratelimit). This helps cope with bursty jobs at the expense of latency, but is required to deal with API limits. Keep in mind that running multiple instances of this module (clustering) will multiple the rate of hits on the API.
 
 ## USE
 
@@ -22,11 +24,17 @@ npm install node-cloudfs-drive --save
 ```
 
 ```javascript
-let { google } = require('googleapis');
+let { google } = require('googleapis'),
+    ncfsOptions = {
+        throttle: 2000, // minimum amount of time between API calls out
+        cacheTTL: 60*60*24, // how long to keep cached API data
+        cacheCheckperiod: 60*60, // how often to check for and remove expired data
+        ncfs.Drive.options.pageSize = 20 // how many objects to get per call
+    }; // These are the present defaults and parameter 3 is optional
 
 //I suggest using someone elses's token generator until mine is at least 1.0.0, but it does work for testing
 require('oauth-token-generator-google')( googleAuthCredentialsPath ).then( auth => { 
-	let drive = require('node-cloudfs-drive').Drive( auth, google );
+	let drive = require('node-cloudfs-drive').Drive( auth, google, ncfsOptions );
 	// drive will expose this projects helper methods as well as the actual the googleapis drive object
     
     drive.mkdir( testFolderA )
