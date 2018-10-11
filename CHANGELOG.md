@@ -1,4 +1,4 @@
-### 1.0.6 (  )
+### 1.0.6 ( 2018-10-11 )
 
 Feature
 	- Added more caching to further reduce API calls
