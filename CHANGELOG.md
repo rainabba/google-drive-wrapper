@@ -1,4 +1,4 @@
-### 1.0.7 ( )
+### 1.0.7 ( 2018-10-11 )
 
 Feature
 	- Added throttling with promise-ratelimit. Also added an options object which takes 'throttle' to customize the default 2000ms throttle rate.
