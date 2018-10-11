@@ -1109,6 +1109,11 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
   integrity sha1-ihvjZr+Pwj2yvSPxDG/pILQ4nR8=
 
+promise-ratelimit@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/promise-ratelimit/-/promise-ratelimit-0.0.3.tgz#1512022734e98579905af17f76f33dd5cdcad175"
+  integrity sha1-FRICJzTphXmQWvF/dvM91c3K0XU=
+
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"

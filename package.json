@@ -16,7 +16,8 @@
     "googleapis": "34.0.0",
     "mime-types": ">=2.x.x < 3.0.0",
     "moment": ">=2.0.0 < 3.0.0",
-    "node-cache": "^4.2.0"
+    "node-cache": "^4.2.0",
+    "promise-ratelimit": "^0.0.3"
   },
   "keywords": [
     "google",

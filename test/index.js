@@ -29,7 +29,7 @@ lab.experiment("Google API ", {}, () => {
         return new Promise( (resolve,reject) => {
             require('oauth-token-generator-google')(googleAuthCredentials).then( _auth => {
                 expect( _auth ).to.be.an.object();
-                drive = require('../lib/').Drive( _auth, google);
+                drive = require('../lib/').Drive( _auth, google, { throttle: 500 } );
                 expect( drive ).to.be.an.object();
                 auth = _auth;
                 resolve();
