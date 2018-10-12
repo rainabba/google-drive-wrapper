@@ -26,11 +26,15 @@ npm install node-cloudfs-drive --save
 ```javascript
 let { google } = require('googleapis'),
     ncfsOptions = {
-        throttle: 2000, // minimum amount of time between API calls out
-        cacheTTL: 60*60*24, // how long to keep cached API data
-        cacheCheckperiod: 60*60, // how often to check for and remove expired data
-        ncfs.Drive.options.pageSize = 20 // how many objects to get per call
-    }; // These are the present defaults and parameter 3 is optional
+        throttle: 2000,
+        cacheTTL: 60 * 60 * 24,
+        cacheCheckperiod: 60 * 60,
+        pageSize: 20,
+        backoff: {
+            retries: 3,
+            factor: 3
+        }
+    }; // These are the present defaults
 
 //I suggest using someone elses's token generator until mine is at least 1.0.0, but it does work for testing
 require('oauth-token-generator-google')( googleAuthCredentialsPath ).then( auth => { 

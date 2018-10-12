@@ -1,3 +1,8 @@
+### 1.0.9 ( 2018-10-12 )
+
+Feature
+	- Added exponential backoff using [promise-ratelimit](https://www.npmjs.com/package/promise-ratelimit)
+
 ### 1.0.8 ( 2018-10-11 )
 
 Change
