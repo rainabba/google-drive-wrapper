@@ -1,3 +1,8 @@
+### 1.0.10 (  )
+
+Feature
+	- Switch from fs to fs-extra to add mkdirp and rimraf available in a single package - https://www.npmjs.com/package/fs-extra
+
 ### 1.0.9 ( 2018-10-12 )
 
 Feature

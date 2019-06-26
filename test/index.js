@@ -1,5 +1,5 @@
 const path = require('path'),
-    fs = require('fs'),
+    fs = require('fs-extra'),
     { google } = require('googleapis'),
     uuidv4 = require('uuid/v4');
 
